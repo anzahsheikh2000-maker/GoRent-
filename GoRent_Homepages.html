@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go Rent — 3 Homepage Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: #111; font-family: sans-serif; }
+
+/* ─── NAV SWITCHER ─────────────────────────────────────────── */
+.switcher {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-bottom: 2px solid #F5C800;
+  height: 52px;
+}
+.switcher-label {
+  padding: 0 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #F5C800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-right: 1px solid #222;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.switcher-btn {
+  padding: 0 24px;
+  height: 100%;
+  background: none;
+  border: none;
+  border-right: 1px solid #1a1a1a;
+  color: #555;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.switcher-btn:hover { color: #F5C800; background: #0a0a0a; }
+.switcher-btn.active { color: #000; background: #F5C800; }
+
+/* ─── SECTION WRAPPER ─────────────────────────────────────── */
+.concept { display: none; padding-top: 52px; min-height: 100vh; }
+.concept.active { display: block; }
+
+/* ═══════════════════════════════════════════════════════════
+   CONCEPT 1 — BRUTALIST RACING
+   Direction: Extreme editorial brutalism, racing heritage,
+   massive kinetic typography
+═══════════════════════════════════════════════════════════ */
+
+.c1 {
+  background: #0A0A0A;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.c1-hero {
+  min-height: calc(100vh - 52px);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Diagonal racing stripe */
+.c1-stripe {
+  position: absolute;
+  width: 120%;
+  height: 280px;
+  background: #F5C800;
+  top: 38%;
+  left: -10%;
+  transform: rotate(-3deg) skewX(-8deg);
+  z-index: 0;
+}
+.c1-stripe-2 {
+  position: absolute;
+  width: 120%;
+  height: 14px;
+  background: #000;
+  top: 38%;
+  left: -10%;
+  transform: rotate(-3deg) skewX(-8deg);
+  margin-top: 56px;
+  z-index: 2;
+}
+
+/* Checkered pattern top left */
+.c1-checks {
+  position: absolute;
+  top: 0; left: 0;
+  width: 120px;
+  height: 120px;
+  background-image:
+    repeating-conic-gradient(#F5C800 0% 25%, transparent 0% 50%);
+  background-size: 20px 20px;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.c1-nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 60px;
+}
+.c1-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 4px;
+  color: #F5C800;
+  text-decoration: none;
+}
+.c1-logo span { color: #fff; }
+.c1-navlinks { display: flex; gap: 36px; }
+.c1-navlinks a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.c1-navlinks a:hover { color: #F5C800; }
+.c1-nav-cta {
+  background: #F5C800;
+  color: #000;
+  padding: 10px 24px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+.c1-nav-cta:hover { background: #fff; }
+
+.c1-headline-wrap {
+  position: relative;
+  z-index: 10;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c1-overline {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #444;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.c1-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(90px, 14vw, 180px);
+  line-height: 0.88;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.c1-h1 .yellow { color: #F5C800; }
+.c1-h1 .outline {
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+.c1-h1 .outline-y {
+  -webkit-text-stroke: 2px #F5C800;
+  color: transparent;
+}
+
+.c1-sub-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+  margin-top: 40px;
+}
+.c1-tagline {
+  font-size: 15px;
+  font-weight: 300;
+  color: #888;
+  letter-spacing: 1px;
+  max-width: 340px;
+  line-height: 1.7;
+}
+.c1-btn-group { display: flex; gap: 16px; flex-shrink: 0; }
+.c1-btn-primary {
+  background: #F5C800;
+  color: #000;
+  padding: 16px 40px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.c1-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: left 0.3s;
+}
+.c1-btn-primary:hover::before { left: 100%; }
+.c1-btn-outline {
+  background: transparent;
+  color: #fff;
+  padding: 16px 40px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border: 2px solid #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.c1-btn-outline:hover { border-color: #F5C800; color: #F5C800; }
+
+.c1-stats {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #1a1a1a;
+  padding: 0 60px;
+}
+.c1-stat {
+  padding: 32px 0;
+  border-right: 1px solid #1a1a1a;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+.c1-stat:first-child { padding-left: 0; }
+.c1-stat-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 54px;
+  line-height: 1;
+  color: #F5C800;
+  letter-spacing: 2px;
+}
+.c1-stat-l {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #444;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Search bar */
+.c1-search-wrap {
+  position: relative;
+  z-index: 10;
+  padding: 48px 60px 0;
+  max-width: 900px;
+}
+.c1-search-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: #F5C800;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.c1-search {
+  display: flex;
+  background: #141414;
+  border: 1px solid #252525;
+  overflow: hidden;
+}
+.c1-search input, .c1-search select {
+  background: none;
+  border: none;
+  border-right: 1px solid #252525;
+  padding: 18px 24px;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  flex: 1;
+  outline: none;
+}
+.c1-search select option { background: #141414; }
+.c1-search-go {
+  background: #F5C800;
+  border: none;
+  padding: 0 36px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.c1-search-go:hover { background: #fff; }
+
+/* Fleet strip */
+.c1-fleet {
+  padding: 80px 60px;
+  background: #0A0A0A;
+}
+.c1-fleet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+.c1-section-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 100px;
+  line-height: 1;
+  color: #141414;
+  position: absolute;
+  margin-top: -30px;
+}
+.c1-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: #fff;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+}
+.c1-section-title span { color: #F5C800; }
+.c1-fleet-link {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #F5C800;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.c1-fleet-link::after { content: '→'; }
+
+.c1-cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.c1-car {
+  background: #111;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.c1-car:hover { background: #161616; }
+.c1-car:hover .c1-car-line { width: 100%; }
+.c1-car-line {
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 3px;
+  background: #F5C800;
+  width: 0;
+  transition: width 0.4s;
+}
+.c1-car-cat {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #F5C800;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.c1-car-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.c1-car-icon {
+  font-size: 64px;
+  text-align: center;
+  padding: 20px 0;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  filter: drop-shadow(0 0 20px rgba(245, 200, 0, 0.2));
+}
+.c1-car:hover .c1-car-icon { opacity: 1; }
+.c1-car-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #1a1a1a;
+}
+.c1-price-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: #F5C800;
+  letter-spacing: 1px;
+}
+.c1-price-per { font-size: 11px; color: #444; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+.c1-book-arrow {
+  width: 36px; height: 36px;
+  background: #F5C800;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.c1-car:hover .c1-book-arrow { transform: translateX(4px); }
+
+/* Why us */
+.c1-why {
+  padding: 80px 60px;
+  background: #F5C800;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.c1-why-left h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  line-height: 0.9;
+  color: #000;
+  letter-spacing: 2px;
+}
+.c1-why-left p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+  margin-top: 24px;
+  max-width: 400px;
+}
+.c1-why-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.c1-why-item {
+  background: rgba(0,0,0,0.08);
+  padding: 28px;
+}
+.c1-why-item-icon { font-size: 28px; margin-bottom: 12px; }
+.c1-why-item-t {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: #000;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.c1-why-item-d { font-size: 13px; color: #333; line-height: 1.6; }
+
+/* Concept 1 footer */
+.c1-footer {
+  background: #000;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid #F5C800;
+}
+.c1-footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: #F5C800;
+  letter-spacing: 4px;
+}
+.c1-footer-copy { font-size: 12px; color: #333; font-weight: 600; letter-spacing: 2px; }
+
+/* Concept 1 animations */
+@keyframes c1-slide-in {
+  from { transform: translateX(-60px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.c1-h1 { animation: c1-slide-in 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+.c1-stripe { animation: c1-stripe-in 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) both; }
+@keyframes c1-stripe-in {
+  from { transform: rotate(-3deg) skewX(-8deg) scaleX(0); transform-origin: left; }
+  to { transform: rotate(-3deg) skewX(-8deg) scaleX(1); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   CONCEPT 2 — LUXURY MINIMAL
+   Direction: Refined, upscale, premium car hire —
+   architectural white space, serif elegance, gold accents
+═══════════════════════════════════════════════════════════ */
+
+.c2 {
+  background: #FAFAF8;
+  font-family: 'Syne', sans-serif;
+}
+
+.c2-nav {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 72px;
+  height: 80px;
+  border-bottom: 1px solid #EBEBEB;
+  position: sticky;
+  top: 52px;
+  z-index: 100;
+}
+.c2-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: #0A0A0A;
+}
+.c2-logo-dot { color: #F5C800; }
+.c2-navlinks { display: flex; gap: 40px; }
+.c2-navlinks a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.c2-navlinks a:hover { color: #0A0A0A; }
+.c2-nav-cta {
+  background: #0A0A0A;
+  color: #F5C800;
+  padding: 12px 28px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.c2-nav-cta:hover { background: #F5C800; color: #000; }
+
+.c2-hero {
+  min-height: 86vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.c2-hero-left {
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+}
+.c2-hero-right {
+  background: #0A0A0A;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c2-hero-right-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, #2a2000 0%, #0A0A0A 70%);
+}
+.c2-hero-car-display {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.c2-hero-car-icon {
+  font-size: 120px;
+  filter: drop-shadow(0 20px 60px rgba(245,200,0,0.4));
+  animation: c2-float 4s ease-in-out infinite;
+}
+@keyframes c2-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.c2-hero-car-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #F5C800;
+  text-transform: uppercase;
+  margin-top: 20px;
+  font-weight: 600;
+}
+.c2-hero-badge {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  background: #F5C800;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: c2-spin 12s linear infinite;
+}
+@keyframes c2-spin { to { transform: rotate(360deg); } }
+.c2-hero-badge-n {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #000;
+  line-height: 1;
+}
+.c2-hero-badge-l {
+  font-size: 7px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.c2-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #F5C800;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.c2-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: #F5C800;
+}
+
+.c2-h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(46px, 5vw, 72px);
+  line-height: 1.05;
+  color: #0A0A0A;
+  letter-spacing: -1px;
+}
+.c2-h1 em {
+  font-style: italic;
+  color: #F5C800;
+}
+
+.c2-hero-desc {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.85;
+  margin-top: 24px;
+  max-width: 400px;
+  font-weight: 400;
+}
+
+.c2-hero-search {
+  margin-top: 40px;
+  background: #F5F5F3;
+  padding: 24px;
+  border: 1px solid #EBEBEB;
+}
+.c2-search-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #AAA;
+  margin-bottom: 16px;
+}
+.c2-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.c2-field {
+  background: #fff;
+  border: 1px solid #E5E5E5;
+  padding: 14px 18px;
+}
+.c2-field-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #AAA; font-weight: 700; }
+.c2-field-val { font-size: 14px; font-weight: 600; color: #0A0A0A; margin-top: 4px; }
+.c2-search-go {
+  width: 100%;
+  background: #0A0A0A;
+  color: #F5C800;
+  border: none;
+  padding: 16px;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.c2-search-go:hover { background: #F5C800; color: #000; }
+
+.c2-hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #EBEBEB;
+}
+.c2-hstat-n {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: #0A0A0A;
+  line-height: 1;
+}
+.c2-hstat-l {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #AAA;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Fleet C2 */
+.c2-fleet {
+  padding: 96px 72px;
+  background: #fff;
+}
+.c2-sec-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.c2-sec-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #F5C800;
+  margin-bottom: 12px;
+}
+.c2-sec-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 44px;
+  line-height: 1.1;
+  color: #0A0A0A;
+  letter-spacing: -1px;
+}
+.c2-sec-desc {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.8;
+  max-width: 380px;
+}
+.c2-cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #EBEBEB;
+}
+.c2-car {
+  background: #FAFAF8;
+  padding: 40px 32px;
+  transition: background 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+.c2-car::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: #F5C800;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.c2-car:hover::after { transform: scaleX(1); }
+.c2-car:hover { background: #fff; }
+.c2-car-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #CCC;
+  margin-bottom: 8px;
+}
+.c2-car-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: #0A0A0A;
+  margin-bottom: 20px;
+}
+.c2-car-img { font-size: 64px; text-align: center; padding: 16px; }
+.c2-car-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 20px;
+  border-top: 1px solid #EBEBEB;
+}
+.c2-car-price-n {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: #0A0A0A;
+}
+.c2-car-price-l { font-size: 10px; letter-spacing: 2px; color: #AAA; font-weight: 600; text-transform: uppercase; }
+.c2-car-btn {
+  background: #0A0A0A;
+  color: #F5C800;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.c2-car-btn:hover { background: #F5C800; color: #000; }
+
+/* Marquee strip */
+.c2-marquee-wrap {
+  background: #F5C800;
+  padding: 20px 0;
+  overflow: hidden;
+}
+.c2-marquee {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: c2-marquee 20s linear infinite;
+}
+@keyframes c2-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.c2-marquee-item {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #000;
+  padding: 0 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  letter-spacing: 1px;
+}
+.c2-marquee-item::after { content: '★'; font-size: 14px; }
+
+/* Why C2 */
+.c2-why {
+  background: #0A0A0A;
+  padding: 96px 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.c2-why-h {
+  font-family: 'DM Serif Display', serif;
+  font-size: 52px;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+.c2-why-h em { font-style: italic; color: #F5C800; }
+.c2-why-p { font-size: 14px; color: #666; line-height: 1.85; }
+.c2-why-items { display: flex; flex-direction: column; gap: 2px; }
+.c2-why-item {
+  background: #111;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: background 0.2s;
+  cursor: default;
+}
+.c2-why-item:hover { background: #161616; }
+.c2-why-item-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: #F5C800;
+  min-width: 48px;
+  line-height: 1;
+}
+.c2-why-item-body {}
+.c2-why-item-t { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; letter-spacing: 0.5px; }
+.c2-why-item-d { font-size: 12px; color: #555; line-height: 1.6; }
+
+/* CTA Banner C2 */
+.c2-cta-banner {
+  background: #F5C800;
+  padding: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.c2-cta-h {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
+  color: #000;
+  letter-spacing: -1px;
+}
+.c2-cta-sub { font-size: 15px; color: #333; margin-top: 8px; }
+.c2-cta-group { display: flex; gap: 16px; }
+.c2-cta-btn-dark {
+  background: #000;
+  color: #F5C800;
+  border: none;
+  padding: 18px 44px;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.c2-cta-btn-dark:hover { background: #fff; color: #000; }
+.c2-cta-btn-out {
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  padding: 18px 44px;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.c2-cta-btn-out:hover { background: #000; color: #F5C800; }
+
+.c2-footer {
+  background: #050505;
+  padding: 32px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #111;
+}
+.c2-footer-logo { font-family: 'DM Serif Display', serif; font-size: 24px; color: #F5C800; }
+.c2-footer-copy { font-size: 11px; color: #333; letter-spacing: 1px; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   CONCEPT 3 — TECH FORWARD / GRID SYSTEM
+   Direction: Modern tech startup energy, bold grid layout,
+   Space Mono + Cabinet Grotesk, data-driven feel
+═══════════════════════════════════════════════════════════ */
+
+.c3 {
+  background: #080808;
+  font-family: 'Cabinet Grotesk', 'Syne', sans-serif;
+}
+
+/* Dot grid background */
+.c3-nav {
+  position: relative;
+  z-index: 10;
+  background: rgba(8,8,8,0.95);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 56px;
+  height: 72px;
+  border-bottom: 1px solid rgba(245,200,0,0.15);
+  position: sticky;
+  top: 52px;
+}
+.c3-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.c3-logo-mark {
+  width: 36px;
+  height: 36px;
+  background: #F5C800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+.c3-logo-text {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+.c3-logo-text span { color: #F5C800; }
+.c3-navlinks { display: flex; gap: 32px; align-items: center; }
+.c3-navlinks a {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.c3-navlinks a:hover { color: #F5C800; }
+.c3-nav-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #F5C800;
+  background: rgba(245,200,0,0.1);
+  border: 1px solid rgba(245,200,0,0.3);
+  padding: 6px 14px;
+  letter-spacing: 2px;
+}
+.c3-nav-cta {
+  background: #F5C800;
+  color: #000;
+  border: none;
+  padding: 10px 24px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.c3-nav-cta:hover { background: #fff; }
+
+.c3-hero {
+  min-height: calc(100vh - 124px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dot grid texture */
+.c3-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(245,200,0,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  z-index: 0;
+}
+
+.c3-hero-left {
+  position: relative;
+  z-index: 1;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(245,200,0,0.1);
+}
+
+.c3-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245,200,0,0.08);
+  border: 1px solid rgba(245,200,0,0.2);
+  padding: 8px 16px;
+  width: fit-content;
+  margin-bottom: 36px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #F5C800;
+}
+.c3-status-dot {
+  width: 6px; height: 6px;
+  background: #F5C800;
+  border-radius: 50%;
+  animation: c3-pulse 2s ease infinite;
+}
+@keyframes c3-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.c3-h1 {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: clamp(54px, 6vw, 82px);
+  font-weight: 900;
+  line-height: 0.95;
+  color: #fff;
+  letter-spacing: -2px;
+}
+.c3-h1 .c3-accent { color: #F5C800; }
+.c3-h1 .c3-box {
+  background: #F5C800;
+  color: #000;
+  display: inline-block;
+  padding: 0 8px;
+  margin: 0 4px;
+}
+
+.c3-hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+  margin-top: 28px;
+  max-width: 420px;
+  font-weight: 500;
+}
+
+.c3-hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  align-items: center;
+}
+.c3-btn-primary {
+  background: #F5C800;
+  color: #000;
+  border: none;
+  padding: 16px 36px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.c3-btn-primary:hover { background: #fff; }
+.c3-btn-primary::after { content: '→'; font-size: 16px; }
+.c3-btn-ghost {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  padding: 16px 28px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.c3-btn-ghost:hover { border-color: #F5C800; color: #F5C800; }
+
+.c3-metrics {
+  display: flex;
+  gap: 40px;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.c3-metric-n {
+  font-family: 'Space Mono', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  color: #F5C800;
+  letter-spacing: -1px;
+}
+.c3-metric-l {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* Right side — booking panel */
+.c3-hero-right {
+  position: relative;
+  z-index: 1;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(15,15,15,0.6);
+}
+
+.c3-book-panel {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 36px;
+}
+.c3-book-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.c3-book-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.c3-book-step {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #F5C800;
+  letter-spacing: 2px;
+}
+
+.c3-book-fields { display: flex; flex-direction: column; gap: 12px; }
+.c3-book-field {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.c3-book-field:hover { border-color: rgba(245,200,0,0.4); }
+.c3-book-field-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(245,200,0,0.6);
+  margin-bottom: 6px;
+}
+.c3-book-field-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.c3-book-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.c3-book-cat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.c3-book-cat.selected {
+  background: rgba(245,200,0,0.12);
+  border-color: #F5C800;
+}
+.c3-book-cat:hover { border-color: rgba(245,200,0,0.4); }
+.c3-book-cat-icon { font-size: 22px; margin-bottom: 6px; }
+.c3-book-cat-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
+.c3-book-cat.selected .c3-book-cat-label { color: #F5C800; }
+
+.c3-book-go {
+  width: 100%;
+  background: #F5C800;
+  color: #000;
+  border: none;
+  padding: 18px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.c3-book-go:hover { background: #fff; }
+.c3-book-go::after { content: '→'; font-size: 18px; }
+
+/* Fleet C3 */
+.c3-fleet {
+  padding: 80px 56px;
+  position: relative;
+}
+.c3-fleet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(245,200,0,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.c3-fleet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+.c3-fleet-title-group {}
+.c3-fleet-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(245,200,0,0.6);
+  margin-bottom: 10px;
+}
+.c3-fleet-h {
+  font-size: 40px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+.c3-fleet-h span { color: #F5C800; }
+.c3-fleet-count {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 2px;
+}
+
+.c3-cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  position: relative;
+  z-index: 1;
+}
+.c3-car {
+  background: #080808;
+  padding: 32px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.c3-car::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #F5C800, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.c3-car:hover::before { transform: scaleX(1); }
+.c3-car:hover { background: rgba(245,200,0,0.03); }
+
+.c3-car-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.c3-car-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(245,200,0,0.6);
+  background: rgba(245,200,0,0.08);
+  padding: 4px 8px;
+}
+.c3-car-id {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.15);
+}
+.c3-car-name {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+.c3-car-specs {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.c3-car-icon { font-size: 52px; text-align: center; padding: 16px 0; opacity: 0.7; transition: opacity 0.3s; }
+.c3-car:hover .c3-car-icon { opacity: 1; }
+.c3-car-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.c3-car-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: #F5C800;
+}
+.c3-car-price-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 2px;
+}
+.c3-car-cta {
+  background: rgba(245,200,0,0.12);
+  border: 1px solid rgba(245,200,0,0.3);
+  color: #F5C800;
+  padding: 10px 18px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.c3-car-cta:hover { background: #F5C800; color: #000; }
+
+/* Features strip C3 */
+.c3-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.c3-feat {
+  background: #0C0C0C;
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.c3-feat::before {
+  content: attr(data-n);
+  position: absolute;
+  right: 16px;
+  bottom: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 60px;
+  font-weight: 700;
+  color: rgba(245,200,0,0.05);
+  line-height: 1;
+}
+.c3-feat-icon { font-size: 28px; margin-bottom: 16px; }
+.c3-feat-t {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.c3-feat-d { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.65; }
+.c3-feat-line {
+  width: 32px;
+  height: 2px;
+  background: #F5C800;
+  margin-bottom: 18px;
+}
+
+/* CTA C3 */
+.c3-cta {
+  padding: 96px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F5C800;
+  position: relative;
+  overflow: hidden;
+}
+.c3-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.c3-cta-left { position: relative; z-index: 1; }
+.c3-cta-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(0,0,0,0.5);
+  margin-bottom: 16px;
+}
+.c3-cta-h {
+  font-size: 52px;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.c3-cta-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+.c3-cta-btn-dark {
+  background: #000;
+  color: #F5C800;
+  border: none;
+  padding: 18px 44px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+.c3-cta-btn-dark::after { content: '→'; font-size: 18px; }
+.c3-cta-btn-dark:hover { background: #fff; color: #000; }
+.c3-cta-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(0,0,0,0.4);
+}
+
+.c3-footer {
+  background: #050505;
+  padding: 28px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(245,200,0,0.15);
+}
+.c3-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+}
+.c3-footer-logo-mark {
+  width: 28px; height: 28px;
+  background: #F5C800;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; font-weight: 700; color: #000;
+}
+.c3-footer-copy {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- ─── SWITCHER ─── -->
+<nav class="switcher">
+  <div class="switcher-label">GO RENT — 3 CONCEPTS</div>
+  <button class="switcher-btn active" onclick="show(1, this)">① BRUTALIST RACING</button>
+  <button class="switcher-btn" onclick="show(2, this)">② LUXURY MINIMAL</button>
+  <button class="switcher-btn" onclick="show(3, this)">③ TECH FORWARD</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 1 — BRUTALIST RACING
+════════════════════════════════════════════════════════ -->
+<div class="concept c1 active" id="c1">
+
+  <div class="c1-hero">
+    <div class="c1-checks"></div>
+    <div class="c1-stripe"></div>
+    <div class="c1-stripe-2"></div>
+
+    <nav class="c1-nav">
+      <a class="c1-logo" href="#"><span>GO</span>RENT</a>
+      <div class="c1-navlinks">
+        <a href="#">Fleet</a>
+        <a href="#">Locations</a>
+        <a href="#">Corporate</a>
+        <a href="#">About</a>
+      </div>
+      <button class="c1-nav-cta">Book Now</button>
+    </nav>
+
+    <div class="c1-headline-wrap">
+      <p class="c1-overline">Pakistan's Premium Car Rental</p>
+      <h1 class="c1-h1">
+        <span class="yellow">GO</span><br>
+        <span class="outline-y">FASTER</span><br>
+        <span style="font-size:0.5em; letter-spacing:4px; color:#888; font-family:'Barlow Condensed',sans-serif; font-weight:300;">RENT THE ROAD. OWN THE MOMENT.</span>
+      </h1>
+      <div class="c1-search-wrap">
+        <p class="c1-search-label">Quick Booking</p>
+        <div class="c1-search">
+          <input type="text" placeholder="Pickup City" />
+          <select>
+            <option>Economy</option>
+            <option>SUV</option>
+            <option>Luxury</option>
+            <option>Van</option>
+          </select>
+          <input type="date" />
+          <button class="c1-search-go">GO →</button>
+        </div>
+      </div>
+      <div class="c1-sub-row">
+        <p class="c1-tagline">Pakistan-wide fleet of 500+ vehicles. Instant booking. No hidden charges. Just drive.</p>
+        <div class="c1-btn-group">
+          <button class="c1-btn-primary">View Fleet</button>
+          <button class="c1-btn-outline">Learn More</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="c1-stats">
+      <div class="c1-stat">
+        <div class="c1-stat-n">500+</div>
+        <div class="c1-stat-l">Vehicles Available</div>
+      </div>
+      <div class="c1-stat">
+        <div class="c1-stat-n">14</div>
+        <div class="c1-stat-l">Cities Covered</div>
+      </div>
+      <div class="c1-stat">
+        <div class="c1-stat-n">24/7</div>
+        <div class="c1-stat-l">Support & Pickup</div>
+      </div>
+      <div class="c1-stat">
+        <div class="c1-stat-n">98%</div>
+        <div class="c1-stat-l">Customer Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="c1-fleet">
+    <div class="c1-fleet-header">
+      <div style="position:relative">
+        <div class="c1-section-num">01</div>
+        <h2 class="c1-section-title">OUR <span>FLEET</span></h2>
+      </div>
+      <a href="#" class="c1-fleet-link">Browse All Vehicles</a>
+    </div>
+    <div class="c1-cars">
+      <div class="c1-car">
+        <div class="c1-car-cat">Economy</div>
+        <div class="c1-car-name">Alto / Cultus</div>
+        <div class="c1-car-icon">🚗</div>
+        <div class="c1-car-price">
+          <div>
+            <div class="c1-price-n">PKR 3,500</div>
+            <div class="c1-price-per">Per Day</div>
+          </div>
+          <div class="c1-book-arrow">→</div>
+        </div>
+        <div class="c1-car-line"></div>
+      </div>
+      <div class="c1-car">
+        <div class="c1-car-cat">Standard</div>
+        <div class="c1-car-name">Corolla / Civic</div>
+        <div class="c1-car-icon">🚙</div>
+        <div class="c1-car-price">
+          <div>
+            <div class="c1-price-n">PKR 6,500</div>
+            <div class="c1-price-per">Per Day</div>
+          </div>
+          <div class="c1-book-arrow">→</div>
+        </div>
+        <div class="c1-car-line"></div>
+      </div>
+      <div class="c1-car">
+        <div class="c1-car-cat">SUV / Premium</div>
+        <div class="c1-car-name">Fortuner / Prado</div>
+        <div class="c1-car-icon">🚐</div>
+        <div class="c1-car-price">
+          <div>
+            <div class="c1-price-n">PKR 14,000</div>
+            <div class="c1-price-per">Per Day</div>
+          </div>
+          <div class="c1-book-arrow">→</div>
+        </div>
+        <div class="c1-car-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="c1-why">
+    <div class="c1-why-left">
+      <h2>WHY<br>GO<br>RENT?</h2>
+      <p>We don't just hand over keys — we deliver a seamless driving experience from booking to drop-off. Every car. Every city. Every time.</p>
+    </div>
+    <div class="c1-why-items">
+      <div class="c1-why-item">
+        <div class="c1-why-item-icon">⚡</div>
+        <div class="c1-why-item-t">Instant Booking</div>
+        <div class="c1-why-item-d">Book in under 2 minutes. Confirmation on WhatsApp immediately.</div>
+      </div>
+      <div class="c1-why-item">
+        <div class="c1-why-item-icon">🛡️</div>
+        <div class="c1-why-item-t">Zero Hidden Fees</div>
+        <div class="c1-why-item-d">The price you see is the price you pay. Always.</div>
+      </div>
+      <div class="c1-why-item">
+        <div class="c1-why-item-icon">🗺️</div>
+        <div class="c1-why-item-t">Nationwide Pickup</div>
+        <div class="c1-why-item-d">14 cities covered with same-day pickup available.</div>
+      </div>
+      <div class="c1-why-item">
+        <div class="c1-why-item-icon">🏆</div>
+        <div class="c1-why-item-t">Premium Fleet</div>
+        <div class="c1-why-item-d">Well-maintained, air-conditioned, fully insured vehicles.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="c1-footer">
+    <div class="c1-footer-logo">GORENT</div>
+    <div class="c1-footer-copy">© 2026 GO RENT  ·  ALL RIGHTS RESERVED</div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 2 — LUXURY MINIMAL
+════════════════════════════════════════════════════════ -->
+<div class="concept c2" id="c2">
+
+  <nav class="c2-nav">
+    <div class="c2-logo">Go<span class="c2-logo-dot">.</span>Rent</div>
+    <div class="c2-navlinks">
+      <a href="#">Our Fleet</a>
+      <a href="#">Destinations</a>
+      <a href="#">Corporate</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <button class="c2-nav-cta">Reserve Now</button>
+  </nav>
+
+  <section class="c2-hero">
+    <div class="c2-hero-left">
+      <div class="c2-eyebrow">Pakistan's Premium Car Rental</div>
+      <h1 class="c2-h1">
+        Drive in<br>
+        <em>Comfort</em>, Book<br>
+        with <em>Confidence.</em>
+      </h1>
+      <p class="c2-hero-desc">
+        From compact city cars to luxury SUVs — Go Rent delivers premium vehicles to your door across 14 cities in Pakistan. No hassle. No surprises.
+      </p>
+
+      <div class="c2-hero-search">
+        <p class="c2-search-title">Find Your Vehicle</p>
+        <div class="c2-fields">
+          <div class="c2-field">
+            <div class="c2-field-label">Pickup City</div>
+            <div class="c2-field-val">Karachi</div>
+          </div>
+          <div class="c2-field">
+            <div class="c2-field-label">Pickup Date</div>
+            <div class="c2-field-val">Select Date</div>
+          </div>
+          <div class="c2-field">
+            <div class="c2-field-label">Return Date</div>
+            <div class="c2-field-val">Select Date</div>
+          </div>
+          <div class="c2-field">
+            <div class="c2-field-label">Vehicle Type</div>
+            <div class="c2-field-val">All Types</div>
+          </div>
+        </div>
+        <button class="c2-search-go">Search Available Cars</button>
+      </div>
+
+      <div class="c2-hero-stats">
+        <div>
+          <div class="c2-hstat-n">500+</div>
+          <div class="c2-hstat-l">Fleet Size</div>
+        </div>
+        <div>
+          <div class="c2-hstat-n">14</div>
+          <div class="c2-hstat-l">Cities</div>
+        </div>
+        <div>
+          <div class="c2-hstat-n">10K+</div>
+          <div class="c2-hstat-l">Happy Customers</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c2-hero-right">
+      <div class="c2-hero-right-bg"></div>
+      <div class="c2-hero-car-display">
+        <div class="c2-hero-car-icon">🚗</div>
+        <div class="c2-hero-car-label">Premium Fleet · Always Available</div>
+        <div class="c2-hero-badge">
+          <div class="c2-hero-badge-n">24/7</div>
+          <div class="c2-hero-badge-l">Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="c2-marquee-wrap">
+    <div class="c2-marquee">
+      <span class="c2-marquee-item">Economy Cars</span>
+      <span class="c2-marquee-item">Standard Sedans</span>
+      <span class="c2-marquee-item">Luxury SUVs</span>
+      <span class="c2-marquee-item">Family Vans</span>
+      <span class="c2-marquee-item">Corporate Hire</span>
+      <span class="c2-marquee-item">Airport Pickup</span>
+      <span class="c2-marquee-item">Nationwide Coverage</span>
+      <span class="c2-marquee-item">Instant Booking</span>
+      <!-- duplicate for seamless loop -->
+      <span class="c2-marquee-item">Economy Cars</span>
+      <span class="c2-marquee-item">Standard Sedans</span>
+      <span class="c2-marquee-item">Luxury SUVs</span>
+      <span class="c2-marquee-item">Family Vans</span>
+      <span class="c2-marquee-item">Corporate Hire</span>
+      <span class="c2-marquee-item">Airport Pickup</span>
+      <span class="c2-marquee-item">Nationwide Coverage</span>
+      <span class="c2-marquee-item">Instant Booking</span>
+    </div>
+  </div>
+
+  <section class="c2-fleet">
+    <div class="c2-sec-header">
+      <div>
+        <div class="c2-sec-tag">Our Fleet</div>
+        <h2 class="c2-sec-title">The Right Car<br>For Every Journey.</h2>
+      </div>
+      <p class="c2-sec-desc">From daily commuters to weekend adventures and corporate travel — every vehicle is meticulously maintained and fully insured.</p>
+    </div>
+    <div class="c2-cars">
+      <div class="c2-car">
+        <div class="c2-car-tag">Economy</div>
+        <div class="c2-car-name">City Cars</div>
+        <div class="c2-car-img">🚗</div>
+        <div class="c2-car-bottom">
+          <div>
+            <div class="c2-car-price-n">3,500</div>
+            <div class="c2-car-price-l">PKR / Day</div>
+          </div>
+          <button class="c2-car-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="c2-car">
+        <div class="c2-car-tag">Standard</div>
+        <div class="c2-car-name">Sedan</div>
+        <div class="c2-car-img">🚙</div>
+        <div class="c2-car-bottom">
+          <div>
+            <div class="c2-car-price-n">6,500</div>
+            <div class="c2-car-price-l">PKR / Day</div>
+          </div>
+          <button class="c2-car-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="c2-car">
+        <div class="c2-car-tag">Premium SUV</div>
+        <div class="c2-car-name">SUV & 4×4</div>
+        <div class="c2-car-img">🚐</div>
+        <div class="c2-car-bottom">
+          <div>
+            <div class="c2-car-price-n">14,000</div>
+            <div class="c2-car-price-l">PKR / Day</div>
+          </div>
+          <button class="c2-car-btn">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="c2-why">
+    <div>
+      <h2 class="c2-why-h">The Go Rent<br><em>Difference.</em></h2>
+      <p class="c2-why-p">We've redefined what car rental means in Pakistan. Every booking is a promise — of quality, reliability and complete transparency.</p>
+    </div>
+    <div class="c2-why-items">
+      <div class="c2-why-item">
+        <div class="c2-why-item-num">01</div>
+        <div class="c2-why-item-body">
+          <div class="c2-why-item-t">Nationwide Presence</div>
+          <div class="c2-why-item-d">14 cities covered with physical locations — we're always near you.</div>
+        </div>
+      </div>
+      <div class="c2-why-item">
+        <div class="c2-why-item-num">02</div>
+        <div class="c2-why-item-body">
+          <div class="c2-why-item-t">Zero Hidden Charges</div>
+          <div class="c2-why-item-d">Transparent pricing. What you see is exactly what you pay.</div>
+        </div>
+      </div>
+      <div class="c2-why-item">
+        <div class="c2-why-item-num">03</div>
+        <div class="c2-why-item-body">
+          <div class="c2-why-item-t">Instant WhatsApp Booking</div>
+          <div class="c2-why-item-d">Confirm your rental in minutes via WhatsApp or our website.</div>
+        </div>
+      </div>
+      <div class="c2-why-item">
+        <div class="c2-why-item-num">04</div>
+        <div class="c2-why-item-body">
+          <div class="c2-why-item-t">24/7 Customer Support</div>
+          <div class="c2-why-item-d">Real people ready to help, any time of the day or night.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="c2-cta-banner">
+    <div>
+      <h2 class="c2-cta-h">Ready to Roll?</h2>
+      <p class="c2-cta-sub">Browse our fleet and reserve your car in under 2 minutes.</p>
+    </div>
+    <div class="c2-cta-group">
+      <button class="c2-cta-btn-dark">Book Your Car</button>
+      <button class="c2-cta-btn-out">Chat on WhatsApp</button>
+    </div>
+  </div>
+
+  <footer class="c2-footer">
+    <div class="c2-footer-logo">Go.Rent</div>
+    <div class="c2-footer-copy">© 2026 Go Rent Pakistan · All Rights Reserved</div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 3 — TECH FORWARD
+════════════════════════════════════════════════════════ -->
+<div class="concept c3" id="c3">
+
+  <nav class="c3-nav">
+    <div class="c3-logo">
+      <div class="c3-logo-mark">GR</div>
+      <div class="c3-logo-text">Go<span>Rent</span></div>
+    </div>
+    <div class="c3-navlinks">
+      <a href="#">Fleet</a>
+      <a href="#">Locations</a>
+      <a href="#">Corporate</a>
+      <a href="#">Pricing</a>
+      <div class="c3-nav-tag">LIVE AVAILABILITY</div>
+    </div>
+    <button class="c3-nav-cta">Book Now</button>
+  </nav>
+
+  <section class="c3-hero">
+    <div class="c3-hero-left">
+      <div class="c3-status">
+        <div class="c3-status-dot"></div>
+        FLEET AVAILABLE NOW — 14 CITIES
+      </div>
+
+      <h1 class="c3-h1">
+        RENT<br>
+        <span class="c3-box">SMARTER.</span><br>
+        DRIVE<br>
+        <span class="c3-accent">ANYWHERE.</span>
+      </h1>
+
+      <p class="c3-hero-sub">
+        Pakistan's most connected car rental platform. Real-time availability, instant WhatsApp confirmation, and 500+ vehicles across the country.
+      </p>
+
+      <div class="c3-hero-actions">
+        <button class="c3-btn-primary">Browse Fleet</button>
+        <button class="c3-btn-ghost">How It Works</button>
+      </div>
+
+      <div class="c3-metrics">
+        <div>
+          <div class="c3-metric-n">500+</div>
+          <div class="c3-metric-l">Vehicles</div>
+        </div>
+        <div>
+          <div class="c3-metric-n">14</div>
+          <div class="c3-metric-l">Cities</div>
+        </div>
+        <div>
+          <div class="c3-metric-n">10K+</div>
+          <div class="c3-metric-l">Trips Done</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c3-hero-right">
+      <div class="c3-book-panel">
+        <div class="c3-book-header">
+          <div class="c3-book-title">Quick Reservation</div>
+          <div class="c3-book-step">STEP 01/03</div>
+        </div>
+
+        <div class="c3-book-fields">
+          <div class="c3-book-field">
+            <div class="c3-book-field-label">PICKUP CITY</div>
+            <div class="c3-book-field-val">Select City →</div>
+          </div>
+          <div class="c3-book-field">
+            <div class="c3-book-field-label">PICKUP DATE</div>
+            <div class="c3-book-field-val">Choose Date →</div>
+          </div>
+          <div class="c3-book-field">
+            <div class="c3-book-field-label">RETURN DATE</div>
+            <div class="c3-book-field-val">Choose Date →</div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <div class="c3-book-field-label" style="margin-bottom:10px; padding-left:2px;">VEHICLE CATEGORY</div>
+          <div class="c3-book-categories">
+            <div class="c3-book-cat selected">
+              <div class="c3-book-cat-icon">🚗</div>
+              <div class="c3-book-cat-label">Economy</div>
+            </div>
+            <div class="c3-book-cat">
+              <div class="c3-book-cat-icon">🚙</div>
+              <div class="c3-book-cat-label">Standard</div>
+            </div>
+            <div class="c3-book-cat">
+              <div class="c3-book-cat-icon">🚐</div>
+              <div class="c3-book-cat-label">SUV</div>
+            </div>
+            <div class="c3-book-cat">
+              <div class="c3-book-cat-icon">✈️</div>
+              <div class="c3-book-cat-label">Airport</div>
+            </div>
+            <div class="c3-book-cat">
+              <div class="c3-book-cat-icon">💼</div>
+              <div class="c3-book-cat-label">Corporate</div>
+            </div>
+            <div class="c3-book-cat">
+              <div class="c3-book-cat-icon">👨‍👩‍👧</div>
+              <div class="c3-book-cat-label">Family</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="c3-book-go">Find Available Cars</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="c3-fleet">
+    <div class="c3-fleet-header">
+      <div class="c3-fleet-title-group">
+        <div class="c3-fleet-sub">// FLEET_CATALOG</div>
+        <div class="c3-fleet-h">Featured <span>Vehicles</span></div>
+      </div>
+      <div class="c3-fleet-count">SHOWING 03 OF 48+</div>
+    </div>
+    <div class="c3-cars">
+      <div class="c3-car">
+        <div class="c3-car-header">
+          <div class="c3-car-tag">ECONOMY</div>
+          <div class="c3-car-id">#GR-001</div>
+        </div>
+        <div class="c3-car-name">Alto / Cultus</div>
+        <div class="c3-car-specs">1000cc · A/C · 4-SEATER · FUEL EFFICIENT</div>
+        <div class="c3-car-icon">🚗</div>
+        <div class="c3-car-footer">
+          <div>
+            <div class="c3-car-price">PKR 3,500</div>
+            <div class="c3-car-price-sub">per day · all inclusive</div>
+          </div>
+          <button class="c3-car-cta">Reserve →</button>
+        </div>
+      </div>
+      <div class="c3-car">
+        <div class="c3-car-header">
+          <div class="c3-car-tag">STANDARD</div>
+          <div class="c3-car-id">#GR-002</div>
+        </div>
+        <div class="c3-car-name">Corolla / Civic</div>
+        <div class="c3-car-specs">1800cc · A/C · 5-SEATER · AUTOMATIC</div>
+        <div class="c3-car-icon">🚙</div>
+        <div class="c3-car-footer">
+          <div>
+            <div class="c3-car-price">PKR 6,500</div>
+            <div class="c3-car-price-sub">per day · all inclusive</div>
+          </div>
+          <button class="c3-car-cta">Reserve →</button>
+        </div>
+      </div>
+      <div class="c3-car">
+        <div class="c3-car-header">
+          <div class="c3-car-tag">SUV / PREMIUM</div>
+          <div class="c3-car-id">#GR-003</div>
+        </div>
+        <div class="c3-car-name">Fortuner / Prado</div>
+        <div class="c3-car-specs">2700cc · A/C · 7-SEATER · 4×4</div>
+        <div class="c3-car-icon">🚐</div>
+        <div class="c3-car-footer">
+          <div>
+            <div class="c3-car-price">PKR 14,000</div>
+            <div class="c3-car-price-sub">per day · all inclusive</div>
+          </div>
+          <button class="c3-car-cta">Reserve →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c3-features">
+    <div class="c3-feat" data-n="01">
+      <div class="c3-feat-line"></div>
+      <div class="c3-feat-icon">⚡</div>
+      <div class="c3-feat-t">Instant Booking</div>
+      <div class="c3-feat-d">Confirm your rental in under 2 minutes. WhatsApp receipt sent immediately.</div>
+    </div>
+    <div class="c3-feat" data-n="02">
+      <div class="c3-feat-line"></div>
+      <div class="c3-feat-icon">🗺️</div>
+      <div class="c3-feat-t">14 City Coverage</div>
+      <div class="c3-feat-d">Karachi, Lahore, Islamabad and 11 more cities — we're already there.</div>
+    </div>
+    <div class="c3-feat" data-n="03">
+      <div class="c3-feat-line"></div>
+      <div class="c3-feat-icon">🛡️</div>
+      <div class="c3-feat-t">Zero Hidden Fees</div>
+      <div class="c3-feat-d">All-inclusive pricing. Fuel policy clear upfront. No surprises at return.</div>
+    </div>
+    <div class="c3-feat" data-n="04">
+      <div class="c3-feat-line"></div>
+      <div class="c3-feat-icon">📞</div>
+      <div class="c3-feat-t">24/7 Live Support</div>
+      <div class="c3-feat-d">Human support on WhatsApp, call or live chat — any hour, any day.</div>
+    </div>
+  </div>
+
+  <div class="c3-cta">
+    <div class="c3-cta-left">
+      <div class="c3-cta-tag">// NEXT_STEP</div>
+      <div class="c3-cta-h">Ready to<br>Drive?</div>
+    </div>
+    <div class="c3-cta-right">
+      <button class="c3-cta-btn-dark">Browse Full Fleet</button>
+      <div class="c3-cta-note">NO SIGN-UP REQUIRED · INSTANT CONFIRMATION</div>
+    </div>
+  </div>
+
+  <footer class="c3-footer">
+    <div class="c3-footer-logo">
+      <div class="c3-footer-logo-mark">GR</div>
+      GoRent
+    </div>
+    <div class="c3-footer-copy">© 2026 GO RENT PAKISTAN · ALL RIGHTS RESERVED</div>
+  </footer>
+</div>
+
+<script>
+function show(n, btn) {
+  document.querySelectorAll('.concept').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.switcher-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('c'+n).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// Interactive car category selection for C3
+document.querySelectorAll('.c3-book-cat').forEach(cat => {
+  cat.addEventListener('click', function() {
+    document.querySelectorAll('.c3-book-cat').forEach(c => c.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+</script>
+</body>
+</html>
